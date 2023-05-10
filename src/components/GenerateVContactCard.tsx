@@ -36,48 +36,51 @@ export default function GenerateVContactCard() {
       "https://avatars2.githubusercontent.com/u/5659221?v=3&s=460",
       "JPEG"
     );
+    vCard.logo.attachFromUrl(
+      "https://avatars2.githubusercontent.com/u/5659221?v=3&s=460",
+      "JPEG"
+    );
+    vCard.gender = 'M';
+    vCard.role = contactDetails.title;
     vCard.workPhone = contactDetails.phone;
-    vCard.mobile = contactDetails.phone;
     vCard.email = contactDetails.email;
-    vCard.website = contactDetails.website;
-    vCard.url = contactDetails.website;
-    vCard.address = contactDetails.address;
+    vCard.workUrl = contactDetails.website;
     vCard.note = contactDetails.note;
+
+    //set URL where the vCard can be found
+    // vCard.source = 'http://mywebpage/myvcard.vcf';
+
+    //set address information
+
+    vCard.workAddress.label = 'Work Address';
+    vCard.workAddress.street = contactDetails.address;
+    vCard.workAddress.city = 'Lagos';
+    vCard.workAddress.stateProvince = 'LAG';
+    vCard.workAddress.postalCode = '5432';
+    vCard.workAddress.countryRegion = 'Nigeria';
+    // vCard.isOrganization = true;
   
-    //save to file
-    // vCard.saveToFile('./ogadinma.vcf');
-    // console.log(vCard.getFormattedString());
+    console.log(vCard);
     setVContactCard(vCard.getFormattedString())
   }
 
-  // const downloadQRCode = () => {
-  //   const canvasRef = document.getElementById('myCanvas') as HTMLCanvasElement
-  //   const qrCodeURL = canvasRef
-  //     .toDataURL('image/png')
-  //     .replace('image/png', 'image/octet-stream')
-  //   const aEl = document.createElement('a')
-  //   aEl.href = qrCodeURL
-  //   aEl.download = 'QR_Code.png'
-  //   document.body.appendChild(aEl)
-  //   aEl.click()
-  //   document.body.removeChild(aEl)
-  // }
-
   useEffect(() => {
-    QRCode.toDataURL(vContactCard,  (error:unknown, qrCodeUrl:string) => {
+    QRCode.toDataURL(vContactCard,  (error:unknown, codeUrl:string) => {
       if (error) {
         console.log(error)
       }
-      setQRCodeUrl(qrCodeUrl)
+      setQRCodeUrl(codeUrl)
 
       // display QR code image
-      let img = document.getElementById("qrCodeEl") as HTMLImageElement;
-      img.src = qrCodeUrl
-      img.alt = "mordi"
-      img.style.display = "block"
-      // document.body.appendChild(qrCodeImage)
+      if(qrCodeUrl){
+        let img = document.getElementById("qrCodeEl") as HTMLImageElement;
+        img.src = qrCodeUrl
+        img.alt = "mordi"
+        img.style.display = "block"
+        // document.body.appendChild(qrCodeImage)
+      }
     })
-  }, [vContactCard])
+  }, [vContactCard,qrCodeUrl])
 
   return (
     <div>

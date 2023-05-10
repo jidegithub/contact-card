@@ -16,12 +16,11 @@ export default function GenerateVContactCard() {
     website: "https://agricorpinternational.com",
     address: "10b Dr. Ladi Alakija, Lekki phase 1, Lagos",
     note: `
-    Ogadinma is a highly qualified and experienced professional 
-    with a strong academic background and specialized expertise in 
-    various areas. He holds a Bachelor of Science degree in Business Administration from Redeemer's University, 
-    where he acquired a solid foundation in business management and operations. 
-    He also holds an Advanced Diploma in Procurement and Supply Chain from CIPS (The Chartered Institute of Procurement and Supply Chain), 
-    which has equipped him with advanced knowledge and skills in procurement, logistics, and supply chain management.
+    Ogadinma is a highly qualified and experienced professional with a strong academic background and specialized expertise in various areas. 
+    
+    He holds a Bachelor of Science degree in Business Administration from Redeemer's University, where he acquired a solid foundation in business management and operations. 
+    
+    He also holds an Advanced Diploma in Procurement and Supply Chain from CIPS (The Chartered Institute of Procurement and Supply Chain), which has equipped him with advanced knowledge and skills in procurement, logistics, and supply chain management.
     `,
   }
 

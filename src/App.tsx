@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Helmet from "react-helmet";
 import GenerateVContactCard from './components/GenerateVContactCard';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <>
+      <Helmet title="contact card" />
       <RouterProvider router={router} />
     </>
   )
